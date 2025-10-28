@@ -2,6 +2,7 @@
 import express from 'express';
 import cors from 'cors';
 import helmet from 'helmet';
+import http from 'http';
 import rateLimit from 'express-rate-limit';
 import dotenv from 'dotenv';
 
@@ -11,8 +12,9 @@ const PORT = process.env.PORT || 3000;
 import {connectDB} from './config/db.js';
 
 dotenv.config();
-
+// create express app and http server
 const app = express();
+const server = http.createServer(app);
 
 app.use(helmet());
 app.use(cors({
@@ -99,13 +101,14 @@ app.use((req, res) => {
 //     }
 // }
 
+// connect to MongoDB
+await connectDB();
 
 if(process.env.NODE_ENV !== 'production'){
-    await connectDB();
-app.listen(PORT, () => {
+server.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
 });
 }
 
 // ✅ Export the app for Vercel
-export default app;
+export default server;
