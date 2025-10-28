@@ -33,8 +33,7 @@ app.use(express.urlencoded({extended: true}));
 
 // app.use('/api/', limiter);
 
-//Routes
-app.use('/api/auth', authRoutes);
+
 
 // Home route
 app.get("/", (req, res) => {
@@ -65,7 +64,8 @@ app.get('/', (req, res) => {
             auth: '/api/auth',
         }
     })
-})
+});
+
 
 // // error handling
 // app.use((err, req, res, next)=> {
@@ -103,6 +103,10 @@ app.get('/', (req, res) => {
 
 // connect to MongoDB
 await connectDB();
+
+
+//Routes
+app.use('/api/auth', authRoutes);
 
 if(process.env.NODE_ENV !== 'production'){
 server.listen(PORT, () => {
