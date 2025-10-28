@@ -1,5 +1,5 @@
 // index.js
-const express = require("express");
+import express from 'express';
 const app = express();
 const PORT = process.env.PORT || 3000;
 
@@ -20,4 +20,4 @@ app.listen(PORT, () => {
 }
 
 // ✅ Export the app for Vercel
-module.exports = app;
+export default app;
