@@ -34,7 +34,7 @@ app.use(express.urlencoded({extended: true}));
 // app.use('/api/', limiter);
 
 //Routes
-//app.use('/api/auth', authRoutes);
+app.use('/api/auth', authRoutes);
 
 // Home route
 app.get("/", (req, res) => {
@@ -47,13 +47,13 @@ app.get("/api", (req, res) => {
 });
 
 // //Health Checks
-// app.get('/health', (req, res) => {
-//     res.json({
-//         status: 'OK',
-//         timestamp: new Date().toISOString(),
-//         environment: process.env.NODE_ENV
-//     })
-// });
+app.get('/health', (req, res) => {
+    res.json({
+        status: 'OK',
+        timestamp: new Date().toISOString(),
+        environment: process.env.NODE_ENV
+    })
+});
 
 // // Root route for Vercel 
 // app.get('/', (req, res) => {
