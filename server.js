@@ -85,22 +85,23 @@ app.use((req, res) => {
 
 
 // MongoDB connection
-let isConnected = false;
+// let isConnected = false;
 
-const ensureDbConnection = async () => {
-    if(!isConnected){
-        try {
-            await connectDB();
-            isConnected = true;
-            console.log('MongoDB connected');
-        } catch (error) {
-            console.error('MongoDB connection error:', error);
-        }
-    }
-}
+// const ensureDbConnection = async () => {
+//     if(!isConnected){
+//         try {
+//             await connectDB();
+//             isConnected = true;
+//             console.log('MongoDB connected');
+//         } catch (error) {
+//             console.error('MongoDB connection error:', error);
+//         }
+//     }
+// }
 
 
 if(process.env.NODE_ENV !== 'production'){
+    await connectDB();
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
 });
