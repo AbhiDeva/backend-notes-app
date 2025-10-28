@@ -34,7 +34,7 @@ app.use(express.urlencoded({extended: true}));
 // app.use('/api/', limiter);
 
 //Routes
-app.use('/api/auth', authRoutes);
+//app.use('/api/auth', authRoutes);
 
 // Home route
 app.get("/", (req, res) => {
