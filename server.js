@@ -102,7 +102,7 @@ app.get("/api", (req, res) => {
 // }
 
 // connect to MongoDB
-await connectDB();
+//await connectDB();
 
 if(process.env.NODE_ENV !== 'production'){
 server.listen(PORT, () => {
