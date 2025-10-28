@@ -25,13 +25,13 @@ app.use(cors({
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
 
-// Rate Limiting
-const limiter = rateLimit({
-    windowMs : 15*60*1000,
-    max: 100
-});
+// // Rate Limiting
+// const limiter = rateLimit({
+//     windowMs : 15*60*1000,
+//     max: 100
+// });
 
-app.use('/api/', limiter);
+// app.use('/api/', limiter);
 
 //Routes
 app.use('/api/auth', authRoutes);
