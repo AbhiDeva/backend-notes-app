@@ -6,7 +6,7 @@ import http from 'http';
 import rateLimit from 'express-rate-limit';
 import dotenv from 'dotenv';
 
-//import authRoutes from './routes/auth.js';
+import authRoutes from './routes/auth.js';
 const PORT = process.env.PORT || 3000;
 
 import {connectDB} from './config/db.js';
@@ -34,7 +34,7 @@ app.use(express.urlencoded({extended: true}));
 // app.use('/api/', limiter);
 
 //Routes
-//app.use('/api/auth', authRoutes);
+app.use('/api/auth', authRoutes);
 
 // Home route
 app.get("/", (req, res) => {
@@ -56,16 +56,16 @@ app.get('/health', (req, res) => {
 });
 
 // // Root route for Vercel 
-// app.get('/', (req, res) => {
-//     res.json({
-//         message: 'Speech-to text notes API',
-//         status: 'Running',
-//         endpoints: {
-//             health: '/health',
-//             auth: '/api/auth',
-//         }
-//     })
-// })
+app.get('/', (req, res) => {
+    res.json({
+        message: 'Speech-to text notes API',
+        status: 'Running',
+        endpoints: {
+            health: '/health',
+            auth: '/api/auth',
+        }
+    })
+})
 
 // // error handling
 // app.use((err, req, res, next)=> {
