@@ -9,7 +9,7 @@ import dotenv from 'dotenv';
 //import authRoutes from './routes/auth.js';
 const PORT = process.env.PORT || 3000;
 
-////import {connectDB} from './config/db.js';
+import {connectDB} from './config/db.js';
 
 dotenv.config();
 // create express app and http server
@@ -102,7 +102,7 @@ app.get("/api", (req, res) => {
 // }
 
 // connect to MongoDB
-//await connectDB();
+await connectDB();
 
 if(process.env.NODE_ENV !== 'production'){
 server.listen(PORT, () => {
