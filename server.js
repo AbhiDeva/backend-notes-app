@@ -26,12 +26,12 @@ app.use(express.json());
 app.use(express.urlencoded({extended: true}));
 
 // // Rate Limiting
-// const limiter = rateLimit({
-//     windowMs : 15*60*1000,
-//     max: 100
-// });
+const limiter = rateLimit({
+    windowMs : 15*60*1000,
+    max: 100
+});
 
-// app.use('/api/', limiter);
+app.use('/api/', limiter);
 
 
 
@@ -106,7 +106,7 @@ await connectDB();
 
 
 //Routes
-app.use('/api/auth', authRoutes);
+//app.use('/api/auth', authRoutes);
 
 if(process.env.NODE_ENV !== 'production'){
 server.listen(PORT, () => {
