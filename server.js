@@ -79,11 +79,11 @@ app.get("/api", (req, res) => {
 
 // 404 handler 
 
-app.use((req, res) => {
-    res.status(404).json({
-        error: 'Not Found'
-    })
-});
+// app.use((req, res) => {
+//     res.status(404).json({
+//         error: 'Not Found'
+//     })
+// });
 
 
 // MongoDB connection
