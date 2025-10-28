@@ -6,10 +6,10 @@ import http from 'http';
 import rateLimit from 'express-rate-limit';
 import dotenv from 'dotenv';
 
-import authRoutes from './routes/auth.js';
+//import authRoutes from './routes/auth.js';
 const PORT = process.env.PORT || 3000;
 
-import {connectDB} from './config/db.js';
+////import {connectDB} from './config/db.js';
 
 dotenv.config();
 // create express app and http server
@@ -34,7 +34,7 @@ app.use(express.urlencoded({extended: true}));
 // app.use('/api/', limiter);
 
 //Routes
-app.use('/api/auth', authRoutes);
+//app.use('/api/auth', authRoutes);
 
 // Home route
 app.get("/", (req, res) => {
