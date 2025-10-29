@@ -1,8 +1,7 @@
 import jwt from 'jsonwebtoken';
 import User from '../models/User.js';
 
-class AuthController {
-    async register(req, res){
+export const register = async (req, res) =>{
         try{
             const { name, email, password } = req.body;
             const existingUser =  await User.findOne({ email});
@@ -41,7 +40,7 @@ class AuthController {
     } 
 
 
-    async login(req, res){
+export const login =  async (req, res) =>{
         try {
             const { email, password} = req.body;
             const user = await User.findOne({ email});
@@ -78,7 +77,7 @@ class AuthController {
         }
     }
 
-    async getProfile(req, res) {
+export const getProfile = async (req, res)  => {
         try {
            res.json({
             user: {
@@ -93,6 +92,3 @@ class AuthController {
             })
         }
     }
-}
-
-export default new AuthController();

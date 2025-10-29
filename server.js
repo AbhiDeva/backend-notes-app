@@ -6,7 +6,7 @@ import http from 'http';
 import rateLimit from 'express-rate-limit';
 import dotenv from 'dotenv';
 
-//import authRoutes from './routes/auth.js';
+import authRoutes from './routes/auth.js';
 const PORT = process.env.PORT || 3000;
 
 import {connectDB} from './config/db.js';
@@ -32,6 +32,7 @@ const limiter = rateLimit({
 });
 
 app.use('/api/', limiter);
+app.use('/api/auth', authRoutes);
 
 
 
@@ -106,7 +107,7 @@ await connectDB();
 
 
 //Routes
-//app.use('/api/auth', authRoutes);
+
 
 if(process.env.NODE_ENV !== 'production'){
 server.listen(PORT, () => {
