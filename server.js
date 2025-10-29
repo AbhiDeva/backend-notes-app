@@ -6,7 +6,7 @@ import http from 'http';
 import rateLimit from 'express-rate-limit';
 import dotenv from 'dotenv';
 
-import authRoutes from './routes/auth.js';
+import authRouter from './routes/auth.js';
 const PORT = process.env.PORT || 3000;
 
 import {connectDB} from './config/db.js';
@@ -32,7 +32,7 @@ const limiter = rateLimit({
 });
 
 app.use('/api/', limiter);
-app.use('/api/auth', authRoutes);
+app.use('/api/auth', authRouter);
 
 
 

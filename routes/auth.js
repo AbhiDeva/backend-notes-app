@@ -3,7 +3,7 @@ import { register, login, getProfile} from './controller/authController.js';
 import auth from '../middleware/auth.js';
 import {body} from 'express-validator';
 
-const router = express.Router();
+const authRouter = express.Router();
 
 
 router.post('/register', [
@@ -19,4 +19,4 @@ router.post('/login', [
 
 router.get('/profile', auth, getProfile);
 
-export default router;
+export default authRouter;
